@@ -1,0 +1,34 @@
+
+
+<!-- Toolbar -->
+
+<div class="content" role="main">
+
+  <button (click)="createIdentificationSession()">
+    1st step - Create Identification Session
+  </button>
+
+  <button (click)="getIdAndRedirectUrl()">
+    2nd step - Get Id and Redirect Url
+  </button>
+
+  <button *ngIf="sessionId" (click)="getUserInfo()">
+    3rd step - Fetch Session Info!
+  </button>
+
+  <label>
+    {{ theToken?.access_token }}
+  </label>
+
+  <br>
+  <br>
+
+  <label *ngIf="theSessionObject">
+    Name: {{ theSessionObject.identity.fullName }}
+    <br>
+    DOB: {{ theSessionObject.identity.dateOfBirth }}
+  </label>
+
+</div>
+
+<router-outlet></router-outlet>
